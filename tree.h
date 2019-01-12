@@ -16,7 +16,8 @@
 *                // returns true if T is found.
 *   inOrder()    // dfs inorder recursive traversal.
 *   bfs()        // bfs non-recursive traversal (top down, left to right).
-*   Bonus functions compiled if BALANCE_TREE is defined:
+*
+* Bonus functions compiled if BALANCE_TREE is defined:
 *   remove(T)    // Remove first occurrence of data.
 *   getHeight()  // returns height of tree.
 *   isBalanced() // returns true if tree is balanced.
@@ -58,45 +59,61 @@ namespace myTree {
 			T data;                      // Node data element.
 			std::shared_ptr<Node> left;  // Left child.
 			std::shared_ptr<Node> right; // Right child.
+
 			// Return true if node is leaf.
 			bool isLeaf() const { return !left && !right; }
+		
 		public:
 			explicit Node(T d) : data(d), left(nullptr), right(nullptr) { }
 			~Node() = default;
+		
 			friend class Tree;
 		};
+
+		// Tree root node.
+		std::shared_ptr<Node> root;
+	
 	public:
 		Tree() : root(nullptr) { }
+
 		~Tree() = default;
+	
 		// Clear all nodes from tree.
 		void clear() { clear(root); }
+		
 		// Return true if tree is empty.
 		bool empty() const { return (root == nullptr); }
+		
 		// Return node count.
 		std::size_t size() { return size(root); }
+		
 		// Insert item into tree.
 		void add(T data) { add(root, data); }
+		
 		// recursive search.
 		bool find(T data) const { return find(root, data); }
+		
 		// Dfs in-order traversal (recursive).
 		void inOrder() const { inOrder(root); }
+		
 		// Bfs traversal (top down, left to right).
 		void bfs() const { bfs(root); }
+
 #ifdef BALANCE_TREE
 		// Remove first occurrence of data.
 		bool remove(T data) { return remove(root, data); }
+
 		// Get height of node. Used by isBalanced function.
 		int getHeight() { return getHeight(root); }
+		
 		// Recursive check of tree balance. Returns true if tree is balanced.
 		bool isBalanced() { return isBalanced(root); }
+		
 		// Attempt to balance tree.
 		void balance() { balanceTree(root); }
 #endif // End BALANCE_TREE.
 
 	private:
-		// Tree root node.
-		std::shared_ptr<Node> root;
-
 		// Delete all nodes of tree.
 		void clear(std::shared_ptr<Node> &node)
 		{
@@ -283,4 +300,5 @@ namespace myTree {
 #endif // End BALANCE_TREE.
 	};
 }
+
 #endif
