@@ -1,5 +1,6 @@
-# CIS269_Assignment-5
-## Constructs simple blockchain and fills a binary tree.
+# Blockchain as Tree
+## CIS269 Assignment #5
+### Constructs simple blockchain and fills a binary tree.
 
 ### Part 1: 
 Generate a blockchain of 100 elements stored in an array.
