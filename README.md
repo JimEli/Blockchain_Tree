@@ -15,7 +15,7 @@ Put the array in a binary tree.
 Print out the order of the elements in the format of id:nonce:hash using a depth-first traversal algorithm (doesn’t matter which one), followed by a breadth-first traversal algorithm.
 
 #### Notes:
-* Could not achieve consistent results when using the STL x64 hash function. The STL hash returns a std:size_t (32-bits on x86, and 64-bits on x64). The x64 STL hash exihibtted sluggish performance and suspect nonce values). So, the STL library hash function and 2  alternative functions were researched and are provided/used. See comments inside the hash_funcs.h file for further information.
+* Could not achieve consistent results when using the STL x64 hash function. The STL hash returns a std:size_t (32-bits on x86, and 64-bits on x64). The x64 STL hash exihibitted sluggish performance and suspect nonce values). So, the STL library hash function and 2  alternative functions were researched and are provided/used. See comments inside the hash_funcs.h file for further information.
 * Using nonce as key value for tree is problematic because it is possible to have duplicate nonce values (especially at lower levels of difficulty). The program checks for duplicate nonce values and does not insert these blocks into the tree.
 * Uses my version of queue and vector.
 * Bonus feature gives basic tree statistics and attempts to balance tree. Include these features by defining the BALANCE_TREE macro.
